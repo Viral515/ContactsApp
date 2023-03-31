@@ -40,7 +40,7 @@
             this.ContactsAppLabel = new System.Windows.Forms.Label();
             this.OKButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LicenseTextBox = new System.Windows.Forms.TextBox();
             this.Icons8LinkLabel = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -155,16 +155,17 @@
             this.panel1.Size = new System.Drawing.Size(538, 53);
             this.panel1.TabIndex = 24;
             // 
-            // textBox1
+            // LicenseTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(13, 137);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(501, 203);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.LicenseTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LicenseTextBox.Location = new System.Drawing.Point(13, 137);
+            this.LicenseTextBox.Multiline = true;
+            this.LicenseTextBox.Name = "LicenseTextBox";
+            this.LicenseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.LicenseTextBox.Size = new System.Drawing.Size(501, 203);
+            this.LicenseTextBox.TabIndex = 25;
+            this.LicenseTextBox.Text = resources.GetString("LicenseTextBox.Text");
+            this.LicenseTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LicenseTextBox_KeyPress);
             // 
             // Icons8LinkLabel
             // 
@@ -184,7 +185,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(526, 409);
             this.Controls.Add(this.Icons8LinkLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LicenseTextBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ContactsAppLabel);
             this.Controls.Add(this.GithubLinkLabel);
@@ -216,7 +217,7 @@
         private System.Windows.Forms.Label ContactsAppLabel;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LicenseTextBox;
         private System.Windows.Forms.LinkLabel Icons8LinkLabel;
     }
 }
