@@ -196,8 +196,10 @@
             this.Controls.Add(this.FullNameLabel);
             this.Controls.Add(this.AuthorLabel);
             this.Controls.Add(this.VersionLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AboutForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

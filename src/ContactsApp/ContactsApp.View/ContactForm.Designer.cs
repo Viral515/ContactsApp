@@ -40,8 +40,8 @@
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.OKpanel = new System.Windows.Forms.Panel();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.AddPhotoButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
             this.OKpanel.SuspendLayout();
@@ -168,16 +168,6 @@
             this.OKpanel.Size = new System.Drawing.Size(526, 62);
             this.OKpanel.TabIndex = 23;
             // 
-            // CancelButton
-            // 
-            this.CancelButton.Location = new System.Drawing.Point(439, 25);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 0;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
             // OKButton
             // 
             this.OKButton.Location = new System.Drawing.Point(358, 25);
@@ -187,6 +177,16 @@
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(439, 25);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 0;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AddPhotoButton
             // 
@@ -221,8 +221,10 @@
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.FullNameLabel);
             this.Controls.Add(this.PhotoPictureBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ContactForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
             this.OKpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).EndInit();
