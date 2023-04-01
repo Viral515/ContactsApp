@@ -125,6 +125,7 @@
             this.GithubLinkLabel.TabIndex = 7;
             this.GithubLinkLabel.TabStop = true;
             this.GithubLinkLabel.Text = "https://github.com/Viral515";
+            this.GithubLinkLabel.Click += new System.EventHandler(this.GithubLinkLabel_Click);
             // 
             // ContactsAppLabel
             // 
@@ -177,6 +178,7 @@
             this.Icons8LinkLabel.TabIndex = 26;
             this.Icons8LinkLabel.TabStop = true;
             this.Icons8LinkLabel.Text = "icons8.com";
+            this.Icons8LinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Icons8LinkLabel_LinkClicked);
             // 
             // AboutForm
             // 
