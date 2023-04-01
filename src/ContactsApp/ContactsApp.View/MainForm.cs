@@ -103,5 +103,10 @@ namespace ContactsApp.View
                 form.ShowDialog();
             }
         }
+
+        private void BirthdayPanelCloseButton_Click(object sender, EventArgs e)
+        {
+            this.BirthdayPanel.Visible = false;
+        }
     }
 }
