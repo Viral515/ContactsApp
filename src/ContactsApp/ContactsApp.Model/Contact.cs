@@ -58,8 +58,10 @@ namespace ContactsApp.Model
                 }
                 string fullNameString = value;
                 string[] fullName = fullNameString.Split(' ');
-                fullNameString = char.ToUpper(fullName[0][0]) + fullName[0].Substring(1) 
-                    + ' ' + char.ToUpper(fullName[1][0]) + fullName[1].Substring(1) ;
+                foreach (string s in fullName) 
+                {
+                    fullNameString += char.ToUpper(s[0]) + s.Substring(1) + ' ';
+                }
                 _fullName = fullNameString;
             } 
         }
@@ -74,7 +76,7 @@ namespace ContactsApp.Model
             } 
             set 
             {
-                if (value.Length <= 0)
+                if (value.Length == 0)
                 {
                     throw new ArgumentException($"The email text must be greater than 0 characters.");
                 }
@@ -96,7 +98,7 @@ namespace ContactsApp.Model
             } 
             set 
             {
-                if (value.Length <= 0)
+                if (value.Length == 0)
                 {
                     throw new ArgumentException($"The phone number text must be greater than 0 characters.");
                 }
@@ -104,7 +106,9 @@ namespace ContactsApp.Model
                 {
                     throw new ArgumentException($"The phone number text must be less than {_maxTextLength} characters.");
                 }
-                _phoneNumber = new string(value.Where(c => char.IsDigit(c) || c == '+' || c == '(' || c == ')' || c == '-' || c == ' ').ToArray()); 
+                string allowedChars = "123456789+-()";
+                value = new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+                _phoneNumber = value;
             } 
         }
         /// <summary>
