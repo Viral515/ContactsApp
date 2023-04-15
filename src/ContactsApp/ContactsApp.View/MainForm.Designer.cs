@@ -160,6 +160,7 @@
             // 
             // EditContactButton
             // 
+            this.EditContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EditContactButton.Image = global::ContactsApp.View.Properties.Resources.edit_contact_32x32_gray;
             this.EditContactButton.Location = new System.Drawing.Point(79, 0);
             this.EditContactButton.Margin = new System.Windows.Forms.Padding(0);
@@ -174,6 +175,7 @@
             // 
             // AddContactButton
             // 
+            this.AddContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddContactButton.Image = global::ContactsApp.View.Properties.Resources.add_contact_32x32_gray;
             this.AddContactButton.Location = new System.Drawing.Point(0, 0);
             this.AddContactButton.Margin = new System.Windows.Forms.Padding(0);
