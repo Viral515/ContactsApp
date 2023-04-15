@@ -6,12 +6,12 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает менеджер проекта
     /// </summary>
-    internal class ProjectManager
+    public class ProjectManager
     {
         /// <summary>
         /// Адрес для сохранения данных проекта
         /// </summary>
-        private const string FILE_PATH = @".\AppData\Roaming\ShatyloNikita\ContactsApp\ContactsApp.notes";
+        private const string FILE_PATH = @".\Roaming\ShatyloNikita\ContactsApp\ContactsApp.notes";
 
         /// <summary>
         /// Сохраняет проект в указанный файл
