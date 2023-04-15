@@ -163,14 +163,15 @@
             this.OKpanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.OKpanel.Controls.Add(this.OKButton);
             this.OKpanel.Controls.Add(this.CancelButton);
-            this.OKpanel.Location = new System.Drawing.Point(-2, 291);
+            this.OKpanel.Location = new System.Drawing.Point(-2, 300);
             this.OKpanel.Name = "OKpanel";
-            this.OKpanel.Size = new System.Drawing.Size(526, 62);
+            this.OKpanel.Size = new System.Drawing.Size(526, 53);
             this.OKpanel.TabIndex = 23;
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(358, 25);
+            this.OKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OKButton.Location = new System.Drawing.Point(358, 16);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 1;
@@ -180,7 +181,8 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(439, 25);
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelButton.Location = new System.Drawing.Point(439, 16);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 0;
