@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 
 namespace ContactsApp.Model
@@ -9,19 +10,16 @@ namespace ContactsApp.Model
     public class ProjectManager
     {
         /// <summary>
-        /// Адрес для сохранения данных проекта
-        /// </summary>
-        private const string FILE_PATH = @".\Roaming\ShatyloNikita\ContactsApp\ContactsApp.notes";
-
-        /// <summary>
         /// Сохраняет проект в указанный файл
         /// </summary>
         /// <param name="project"></param>
         public void SaveProject(Project project)
         {
+            var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var path = $@"{appData}\ShatyloNikita\ContactsApp\ContactsApp.notes";
             string jsonData = JsonConvert.SerializeObject(project);
 
-            using (StreamWriter writer = new StreamWriter(FILE_PATH))
+            using (StreamWriter writer = new StreamWriter(path))
             {
                 writer.Write(jsonData);
             }
