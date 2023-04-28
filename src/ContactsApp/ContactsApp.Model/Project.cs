@@ -22,16 +22,18 @@ namespace ContactsApp.Model
         {
             _contacts.Add(contact);
         }
+
+        //TODO: сделать удаление конкретного контакта с формы
         /// <summary>
         /// Удаляет контакт из списка
         /// </summary>
-        /// <param name="email">Email удаляемого контакта</param>
+        /// <param name="phoneNumber">Email удаляемого контакта</param>
         /// <returns>Логическая переменная обозначающая удалился ли данный контакт</returns>
-        public bool RemoveContact(string email)
+        public bool RemoveContact(string phoneNumber)
         {
             foreach (Contact contact in _contacts) 
             {
-                if (contact.Email == email)
+                if (contact.PhoneNumber == phoneNumber)
                 {
                     _contacts.Remove(contact);
                     return true;
@@ -39,6 +41,7 @@ namespace ContactsApp.Model
             }
             return false;
         }
+
         /// <summary>
         /// Сортирует список по полному имени
         /// </summary>
@@ -47,11 +50,12 @@ namespace ContactsApp.Model
         {
             return _contacts.OrderBy(c => c.FullName).ToList();
         }
+
         /// <summary>
         /// Находит контакты у которых сегодня день рождения
         /// </summary>
         /// <returns>Список именинников</returns>
-        public List<Contact> FindBirthday() 
+        public List<Contact> FindBirthdayContact() 
         {
             DateTime today = DateTime.Now;
             List<Contact> result = new List<Contact>();

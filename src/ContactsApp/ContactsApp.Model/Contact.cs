@@ -128,7 +128,7 @@ namespace ContactsApp.Model
                 }
                 else
                 {
-                    throw new ArgumentException($"Liar!");
+                    throw new ArgumentException($"An uncorrected date value has been entered.");
                 }
             }
         }
