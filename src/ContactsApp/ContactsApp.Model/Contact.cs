@@ -111,8 +111,6 @@ namespace ContactsApp.Model
                     throw new ArgumentException($"The expression (phone number) contains invalid symbols.");
                 }
                 _phoneNumber = value;
-                //_phoneNumber = new string(value.Where(c => char.IsDigit(c) || c == '+' || c == '(' 
-                //|| c == ')' || c == '-' || c == ' ').ToArray()); 
             } 
         }
         /// <summary>
