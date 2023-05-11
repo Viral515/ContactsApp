@@ -46,7 +46,6 @@
             this.InfoPicture = new System.Windows.Forms.PictureBox();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
-            this.DateOfBirthTextBox = new System.Windows.Forms.TextBox();
             this.DateOfBirthLabel = new System.Windows.Forms.Label();
             this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MainTableLayoutPanel.SuspendLayout();
             this.ContactsPanel.SuspendLayout();
             this.ButtonsTableLayoutPanel.SuspendLayout();
@@ -123,6 +123,7 @@
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(238, 374);
             this.ContactsListBox.TabIndex = 4;
+            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
             // ButtonsTableLayoutPanel
             // 
@@ -208,10 +209,10 @@
             // 
             // ContactInfoPanel
             // 
+            this.ContactInfoPanel.Controls.Add(this.DateOfBirthTimePicker);
             this.ContactInfoPanel.Controls.Add(this.BirthdayPanel);
             this.ContactInfoPanel.Controls.Add(this.VKTextBox);
             this.ContactInfoPanel.Controls.Add(this.VKLabel);
-            this.ContactInfoPanel.Controls.Add(this.DateOfBirthTextBox);
             this.ContactInfoPanel.Controls.Add(this.DateOfBirthLabel);
             this.ContactInfoPanel.Controls.Add(this.PhoneNumberTextBox);
             this.ContactInfoPanel.Controls.Add(this.PhoneNumberLabel);
@@ -307,15 +308,6 @@
             this.VKLabel.TabIndex = 9;
             this.VKLabel.Text = "VK:";
             // 
-            // DateOfBirthTextBox
-            // 
-            this.DateOfBirthTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DateOfBirthTextBox.Location = new System.Drawing.Point(109, 188);
-            this.DateOfBirthTextBox.Name = "DateOfBirthTextBox";
-            this.DateOfBirthTextBox.Size = new System.Drawing.Size(175, 23);
-            this.DateOfBirthTextBox.TabIndex = 8;
-            this.DateOfBirthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DateOfBirthTextBox_KeyPress);
-            // 
             // DateOfBirthLabel
             // 
             this.DateOfBirthLabel.AutoSize = true;
@@ -403,6 +395,14 @@
             this.PhotoPictureBox.TabIndex = 0;
             this.PhotoPictureBox.TabStop = false;
             // 
+            // DateOfBirthTimePicker
+            // 
+            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(109, 191);
+            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(175, 20);
+            this.DateOfBirthTimePicker.TabIndex = 12;
+            this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +414,7 @@
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "ContactsApp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.MainTableLayoutPanel.ResumeLayout(false);
             this.ContactsPanel.ResumeLayout(false);
@@ -449,7 +450,6 @@
         private System.Windows.Forms.Panel BirthdayPanel;
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.Label VKLabel;
-        private System.Windows.Forms.TextBox DateOfBirthTextBox;
         private System.Windows.Forms.Label DateOfBirthLabel;
         private System.Windows.Forms.TextBox PhoneNumberTextBox;
         private System.Windows.Forms.Label PhoneNumberLabel;
@@ -460,6 +460,7 @@
         private System.Windows.Forms.PictureBox RemoveContactButton;
         private System.Windows.Forms.PictureBox EditContactButton;
         private System.Windows.Forms.PictureBox AddContactButton;
+        private System.Windows.Forms.DateTimePicker DateOfBirthTimePicker;
     }
 }
 

@@ -12,35 +12,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Список контактов в проекте
         /// </summary>
-        private List<Contact> _contacts;
-
-        /// <summary>
-        /// Добавляет контакт в список
-        /// </summary>
-        /// <param name="contact">Новый контакт, который необходимо добавить в список</param>
-        public void AddContact(Contact contact)
-        {
-            _contacts.Add(contact);
-        }
-
-        //TODO: сделать удаление конкретного контакта с формы
-        /// <summary>
-        /// Удаляет контакт из списка
-        /// </summary>
-        /// <param name="phoneNumber">Email удаляемого контакта</param>
-        /// <returns>Логическая переменная обозначающая удалился ли данный контакт</returns>
-        public bool RemoveContact(string phoneNumber)
-        {
-            foreach (Contact contact in _contacts) 
-            {
-                if (contact.PhoneNumber == phoneNumber)
-                {
-                    _contacts.Remove(contact);
-                    return true;
-                }
-            }
-            return false;
-        }
+        public List<Contact> Contacts = new List<Contact>();
 
         /// <summary>
         /// Сортирует список по полному имени
@@ -48,7 +20,7 @@ namespace ContactsApp.Model
         /// <returns>Отсортированный список</returns>
         public List<Contact> SortByName() 
         {
-            return _contacts.OrderBy(c => c.FullName).ToList();
+            return Contacts.OrderBy(c => c.FullName).ToList();
         }
 
         /// <summary>
@@ -59,7 +31,7 @@ namespace ContactsApp.Model
         {
             DateTime today = DateTime.Now;
             List<Contact> result = new List<Contact>();
-            foreach (Contact contact in _contacts) 
+            foreach (Contact contact in Contacts) 
             {
                 if ((contact.DateOfBirth.Month == today.Month) && (contact.DateOfBirth.Day == today.Day))
                 {
@@ -76,7 +48,7 @@ namespace ContactsApp.Model
         public List<Contact> Search(string substring)
         {
             List<Contact> result = new List<Contact>();
-            foreach (Contact contact in _contacts) 
+            foreach (Contact contact in Contacts) 
             {
                 if (contact.FullName.Contains(substring) || contact.PhoneNumber.Contains(substring) ||
                     contact.Email.Contains(substring))

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ContactsApp.Model
 {
@@ -104,10 +105,13 @@ namespace ContactsApp.Model
                 }
                 if (value.Length > _maxTextLength)
                 {
-                    throw new ArgumentException($"The phone number text must be less than {_maxTextLength} characters.");
+                    throw new ArgumentException($"The phone number text must be less than " +
+                        $"{_maxTextLength} characters.");
                 }
-                string allowedChars = "123456789+-()";
-                value = new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+                if (Regex.IsMatch(value, @"^[0-9()+\- ]+$") != true)
+                {
+                    throw new ArgumentException($"The expression (phone number) contains invalid symbols.");
+                }
                 _phoneNumber = value;
             } 
         }
@@ -158,6 +162,11 @@ namespace ContactsApp.Model
         /// <summary>
         /// Создаёт экземпляр <see cref="Contact">
         /// </summary>
+        /// <param name="fullName">фамилия и имя контакта</param>
+        /// <param name="email">электронная почта</param>
+        /// <param name="phoneNumber">номер телефона</param>
+        /// <param name="dateOfBirth">дата рождения</param>
+        /// <param name="idVK">ссылка на ВК</param>
         public Contact (string fullName, string email, string phoneNumber, DateTime dateOfBirth, string idVK)
         {
             FullName = fullName;
