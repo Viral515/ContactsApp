@@ -22,11 +22,12 @@ namespace ContactsApp.Model
         {
             return Contacts.OrderBy(c => c.FullName).ToList();
         }
+
         /// <summary>
         /// Находит контакты у которых сегодня день рождения
         /// </summary>
         /// <returns>Список именинников</returns>
-        public List<Contact> FindBirthday() 
+        public List<Contact> FindBirthdayContact() 
         {
             DateTime today = DateTime.Now;
             List<Contact> result = new List<Contact>();

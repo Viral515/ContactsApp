@@ -59,8 +59,10 @@ namespace ContactsApp.Model
                 }
                 string fullNameString = value;
                 string[] fullName = fullNameString.Split(' ');
-                fullNameString = char.ToUpper(fullName[0][0]) + fullName[0].Substring(1) 
-                    + ' ' + char.ToUpper(fullName[1][0]) + fullName[1].Substring(1) ;
+                foreach (string s in fullName) 
+                {
+                    fullNameString += char.ToUpper(s[0]) + s.Substring(1) + ' ';
+                }
                 _fullName = fullNameString;
             } 
         }
@@ -75,7 +77,7 @@ namespace ContactsApp.Model
             } 
             set 
             {
-                if (value.Length <= 0)
+                if (value.Length == 0)
                 {
                     throw new ArgumentException($"The email text must be greater than 0 characters.");
                 }
@@ -97,7 +99,7 @@ namespace ContactsApp.Model
             } 
             set 
             {
-                if (value.Length <= 0)
+                if (value.Length == 0)
                 {
                     throw new ArgumentException($"The phone number text must be greater than 0 characters.");
                 }
@@ -130,7 +132,7 @@ namespace ContactsApp.Model
                 }
                 else
                 {
-                    throw new ArgumentException($"Liar!");
+                    throw new ArgumentException($"An uncorrected date value has been entered.");
                 }
             }
         }
