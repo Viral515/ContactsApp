@@ -105,7 +105,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка нажатия кнопки добавления контакта
+        /// Обрабатывает нажатие кнопки добавления контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -118,7 +118,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка события наведения курсора на кнопку добавления контакта
+        /// Обрабатывает событие наведения курсора на кнопку добавления контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -129,7 +129,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка события покидания курсором кнопки добавления контакта
+        /// Обрабатывает событие покидания курсором кнопки добавления контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -140,7 +140,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка нажатия кнопки редактирования контакта
+        /// Обрабатывает нажатие кнопки редактирования контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -151,7 +151,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка нажатия кнопки удаления контакта
+        /// Обрабатывает нажатие кнопки удаления контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -162,7 +162,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка события наведения курсора на кнопку удаления контакта
+        /// Обрабатывает событие наведения курсора на кнопку удаления контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -173,7 +173,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка события покидания курсором кнопки удаления контакта
+        /// Обрабатывает событие покидания курсором кнопки удаления контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -184,7 +184,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка события наведения курсора на кнопку редактирования контакта
+        /// Обрабатывает событие наведения курсора на кнопку редактирования контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -195,7 +195,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обработка события покидания курсором кнопки редактирования контакта
+        /// Обрабатывает событие покидания курсором кнопки редактирования контакта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

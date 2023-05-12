@@ -55,6 +55,7 @@
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(175, 23);
             this.VKTextBox.TabIndex = 21;
+            this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
             // 
             // VKLabel
             // 
@@ -86,6 +87,7 @@
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(175, 23);
             this.PhoneNumberTextBox.TabIndex = 17;
             this.PhoneNumberTextBox.Text = "+7 (000) 000-00-00";
+            this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
             // 
             // PhoneNumberLabel
             // 
@@ -108,6 +110,7 @@
             this.EmailTextBox.Size = new System.Drawing.Size(394, 23);
             this.EmailTextBox.TabIndex = 15;
             this.EmailTextBox.Text = "abakumov@no.mail";
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // EmailLabel
             // 
@@ -130,6 +133,7 @@
             this.FullNameTextBox.Size = new System.Drawing.Size(394, 23);
             this.FullNameTextBox.TabIndex = 13;
             this.FullNameTextBox.Text = "Абакумов Владимир";
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // FullNameLabel
             // 
@@ -157,6 +161,7 @@
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(175, 20);
             this.DateOfBirthTimePicker.TabIndex = 22;
+            this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
             // 
             // OKpanel
             // 
