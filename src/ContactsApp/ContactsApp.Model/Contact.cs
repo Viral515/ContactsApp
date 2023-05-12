@@ -59,10 +59,12 @@ namespace ContactsApp.Model
                 }
                 string fullNameString = value;
                 string[] fullName = fullNameString.Split(' ');
-                foreach (string s in fullName) 
+                fullNameString = null;
+                foreach (string s in fullName)
                 {
                     fullNameString += char.ToUpper(s[0]) + s.Substring(1) + ' ';
                 }
+                fullNameString = fullNameString.Substring(0, fullNameString.Length-1);
                 _fullName = fullNameString;
             } 
         }
