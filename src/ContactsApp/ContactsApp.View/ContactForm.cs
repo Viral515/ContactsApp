@@ -13,14 +13,31 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
+        /// <summary>
+        /// Объект контакта, содержащий основную информацию о нём
+        /// </summary>
         private Contact _contact = new Contact("Mike Wazovsky", "qwe@gmail.com", 
             "+7(913)-111-22-33", DateTime.Today, "1111121"); 
+        /// <summary>
+        /// Переменная для вывода ошибок при изменении значения фио контакта
+        /// </summary>
         private string _fullNameError;
+        /// <summary>
+        /// Переменная для вывода ошибок при изменении значения почты контакта
+        /// </summary>
         private string _emailError;
+        /// <summary>
+        /// Переменная для вывода ошибок при изменении значения номера телефона контакта
+        /// </summary>
         private string _phoneNumberError;
+        /// <summary>
+        /// Переменная для вывода ошибок при изменении значения даты рождения контакта
+        /// </summary>
         private string _dateOfBirthError;
+        /// <summary>
+        /// Переменная для вывода ошибок при изменении значения ссылки на ВК контакта
+        /// </summary>
         private string _idVKError;
-
 
 
         public ContactForm()
@@ -28,7 +45,9 @@ namespace ContactsApp.View
             InitializeComponent();
             UpdateForm();
         }
-
+        /// <summary>
+        /// Обновляет информацию о контакте в полях на форме
+        /// </summary>
         private void UpdateForm()
         {
             FullNameTextBox.Text = _contact.FullName;
@@ -37,7 +56,10 @@ namespace ContactsApp.View
             DateOfBirthTimePicker.Value = _contact.DateOfBirth;
             VKTextBox.Text = _contact.IdVK;
         }
-
+        /// <summary>
+        /// Проверяет данные на наличие ошибок ввода
+        /// </summary>
+        /// <returns></returns>
         private bool CheckFormOnErrors()
         {
             StringBuilder message = new StringBuilder();
@@ -65,7 +87,9 @@ namespace ContactsApp.View
             }
             return true;
         }
-
+        /// <summary>
+        /// Обновляет данные контакта
+        /// </summary>
         private void UpdateContact()
         {
             _contact.FullName = FullNameTextBox.Text;
@@ -74,24 +98,40 @@ namespace ContactsApp.View
             _contact.DateOfBirth = DateOfBirthTimePicker.Value;
             _contact.IdVK = VKTextBox.Text;
         }
-
+        /// <summary>
+        /// Обрабатывает нажатие кнопки добавления фото контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_Click(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// Обрабатывает событие наведения курсора на кнопку добавления фото контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
             AddPhotoButton.BackColor = ColorTranslator.FromHtml("#FAF5F5");
         }
-
+        /// <summary>
+        /// Обрабатывает событие покидания курсором кнопки добавления фото контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
             AddPhotoButton.BackColor = Color.White;
         }
-
+        /// <summary>
+        /// Обрабатывает нажатие кнопки ОК на форме
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (CheckFormOnErrors() == true)
@@ -100,12 +140,20 @@ namespace ContactsApp.View
                 this.Close();
             }
         }
-
+        /// <summary>
+        /// Обрабатывает нажатие кнопки отмены на форме
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Обрабатывает событие изменения значения поля с фио контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -120,7 +168,11 @@ namespace ContactsApp.View
                 _fullNameError = exception.Message;
             }
         }
-
+        /// <summary>
+        /// Обрабатывает событие изменения значения поля с почтой контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -135,7 +187,11 @@ namespace ContactsApp.View
                 _emailError = exception.Message;
             }
         }
-
+        /// <summary>
+        /// Обрабатывает событие изменения значения поля с номером телефона контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -150,7 +206,11 @@ namespace ContactsApp.View
                 _phoneNumberError = exception.Message;
             }
         }
-
+        /// <summary>
+        /// Обрабатывает событие изменения значения поля с ссылкой на ВК контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -165,7 +225,11 @@ namespace ContactsApp.View
                 _idVKError = exception.Message;
             }
         }
-
+        /// <summary>
+        /// Обрабатывает событие изменения значения поля с датой рождения контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DateOfBirthTimePicker_ValueChanged(object sender, EventArgs e)
         {
             try
