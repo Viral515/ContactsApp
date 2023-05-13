@@ -36,7 +36,8 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact()
         {
-            Random random = new Random();
+            //автоматическая генерация случайных данных
+            /*Random random = new Random();
             string[] fullNames = { "Rick Sanchez", "morty smith", "dipper Pines", "Mabel pines", "Mike Wazovsky" };
             string[] phoneNumbers = { "+7(913)-111-22-33", "+7(913)-444-55-66",
                 "+7(913)-777-88-99", "+7(913)-999-88-77", "+7(913)-666-55-44" };
@@ -52,7 +53,21 @@ namespace ContactsApp.View
             string randomIdVk = idVk[random.Next(idVk.Length)];
             Contact newContact = new Contact(randomFullName, randomEmail, randomPhoneNumber,
                 randomDateOfBirth, randomIdVk);
-            _project.Contacts.Add(newContact);
+            _project.Contacts.Add(newContact);*/
+
+            var contact = new ContactForm();
+
+            DialogResult result = contact.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var updatedContact = contact.Contact;
+                _project.Contacts.Add(updatedContact);
+                ContactsListBox.Items.Add(updatedContact.FullName);
+            }
+            else
+            {
+                contact.Close();
+            }
         }
 
         /// <summary>
@@ -75,6 +90,33 @@ namespace ContactsApp.View
             else
             {
                 //this.Close();
+            }
+        }
+        /// <summary>
+        /// Редактирует выбранный контакт
+        /// </summary>
+        /// <param name="index"></param>
+        private void EditContact(int index) 
+        {
+            var selectedIndex = index;
+            var selectedContact = _project.Contacts[selectedIndex];
+            var contact = new ContactForm();
+            contact.Contact = (Contact)selectedContact.Clone();
+
+            DialogResult result = contact.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var updatedContact = contact.Contact;
+
+                ContactsListBox.Items.RemoveAt(selectedIndex);
+                _project.Contacts.RemoveAt(selectedIndex);
+
+                _project.Contacts.Insert(selectedIndex, updatedContact);
+                ContactsListBox.Items.Insert(selectedIndex, updatedContact.FullName);
+            }
+            else
+            {
+                contact.Close();
             }
         }
 
@@ -146,8 +188,7 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            var form = new ContactForm();
-            form.ShowDialog();
+            EditContact(ContactsListBox.SelectedIndex);
         }
 
         /// <summary>

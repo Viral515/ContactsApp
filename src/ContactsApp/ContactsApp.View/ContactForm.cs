@@ -39,6 +39,24 @@ namespace ContactsApp.View
         /// </summary>
         private string _idVKError;
 
+        /// <summary>
+        /// Возвращает или задаёт данные о контакте
+        /// </summary>
+        public Contact Contact
+        { 
+            get 
+            { 
+                return _contact; 
+            }
+            set 
+            {
+                _contact.FullName = value.FullName;
+                _contact.Email = value.Email;
+                _contact.PhoneNumber = value.PhoneNumber;
+                _contact.DateOfBirth = value.DateOfBirth;
+                _contact.IdVK = value.IdVK;
+            }
+        }
 
         public ContactForm()
         {
@@ -137,6 +155,7 @@ namespace ContactsApp.View
             if (CheckFormOnErrors() == true)
             {
                 UpdateContact();
+                DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
