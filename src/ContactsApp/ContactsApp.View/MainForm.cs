@@ -7,6 +7,9 @@ using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
+    /// <summary>
+    /// Класс главной формы
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -14,6 +17,9 @@ namespace ContactsApp.View
         /// </summary>
         private Project _project = new Project();
 
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -36,27 +42,7 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact()
         {
-            //автоматическая генерация случайных данных
-            /*Random random = new Random();
-            string[] fullNames = { "Rick Sanchez", "morty smith", "dipper Pines", "Mabel pines", "Mike Wazovsky" };
-            string[] phoneNumbers = { "+7(913)-111-22-33", "+7(913)-444-55-66",
-                "+7(913)-777-88-99", "+7(913)-999-88-77", "+7(913)-666-55-44" };
-            string[] emails = { "qwe@gmail.com", "asd@mail.com", "zxc@bk.com",
-                "qwerty@outlook.com", "asd123@mail.com" };
-            DateTime[] dateOfBirth = { DateTime.Today };
-            string[] idVk = { "1111111", "2222222", "3333333", "4444444", "5555555" };
-
-            string randomFullName = fullNames[random.Next(fullNames.Length)];
-            string randomPhoneNumber = phoneNumbers[random.Next(phoneNumbers.Length)];
-            string randomEmail = emails[random.Next(emails.Length)];
-            DateTime randomDateOfBirth = dateOfBirth[random.Next(dateOfBirth.Length)];
-            string randomIdVk = idVk[random.Next(idVk.Length)];
-            Contact newContact = new Contact(randomFullName, randomEmail, randomPhoneNumber,
-                randomDateOfBirth, randomIdVk);
-            _project.Contacts.Add(newContact);*/
-
             var contact = new ContactForm();
-
             DialogResult result = contact.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -87,10 +73,6 @@ namespace ContactsApp.View
             {
                 _project.Contacts.RemoveAt(index);
             }
-            else
-            {
-                //this.Close();
-            }
         }
         /// <summary>
         /// Редактирует выбранный контакт
@@ -113,10 +95,6 @@ namespace ContactsApp.View
 
                 _project.Contacts.Insert(selectedIndex, updatedContact);
                 ContactsListBox.Items.Insert(selectedIndex, updatedContact.FullName);
-            }
-            else
-            {
-                contact.Close();
             }
         }
 
@@ -155,8 +133,6 @@ namespace ContactsApp.View
         {
             AddContact();
             UpdateListBox();
-            //var form = new ContactForm();
-            //form.ShowDialog();
         }
 
         /// <summary>
@@ -340,16 +316,6 @@ namespace ContactsApp.View
             {
                 e.Cancel = true;
             }
-        }
-
-        /// <summary>
-        /// Обрабатывает попытку изменения значения поля с информацией о дате рождения
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DateOfBirthTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

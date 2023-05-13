@@ -11,29 +11,47 @@ using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
+    /// <summary>
+    /// Класс формы редактирования и создания контакта
+    /// </summary>
     public partial class ContactForm : Form
     {
+        /// <summary>
+        /// Цвет отсутствия ошибок
+        /// </summary>
+        private Color _noErrorColor = Color.White;
+        
+        /// <summary>
+        /// Цвет ошибки
+        /// </summary>
+        private Color _errorColor = Color.LightPink;
+
         /// <summary>
         /// Объект контакта, содержащий основную информацию о нём
         /// </summary>
         private Contact _contact = new Contact("Mike Wazovsky", "qwe@gmail.com", 
             "+7(913)-111-22-33", DateTime.Today, "1111121"); 
+
         /// <summary>
         /// Переменная для вывода ошибок при изменении значения фио контакта
         /// </summary>
         private string _fullNameError;
+
         /// <summary>
         /// Переменная для вывода ошибок при изменении значения почты контакта
         /// </summary>
         private string _emailError;
+
         /// <summary>
         /// Переменная для вывода ошибок при изменении значения номера телефона контакта
         /// </summary>
         private string _phoneNumberError;
+
         /// <summary>
         /// Переменная для вывода ошибок при изменении значения даты рождения контакта
         /// </summary>
         private string _dateOfBirthError;
+
         /// <summary>
         /// Переменная для вывода ошибок при изменении значения ссылки на ВК контакта
         /// </summary>
@@ -50,17 +68,13 @@ namespace ContactsApp.View
             }
             set 
             {
-                _contact.FullName = value.FullName;
-                _contact.Email = value.Email;
-                _contact.PhoneNumber = value.PhoneNumber;
-                _contact.DateOfBirth = value.DateOfBirth;
-                _contact.IdVK = value.IdVK;
+                _contact = value;
             }
         }
 
         public ContactForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             UpdateForm();
         }
         /// <summary>
@@ -117,15 +131,6 @@ namespace ContactsApp.View
             _contact.IdVK = VKTextBox.Text;
         }
         /// <summary>
-        /// Обрабатывает нажатие кнопки добавления фото контакта
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddPhotoButton_Click(object sender, EventArgs e)
-        {
-
-        }
-        /// <summary>
         /// Обрабатывает событие наведения курсора на кнопку добавления фото контакта
         /// </summary>
         /// <param name="sender"></param>
@@ -178,12 +183,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.FullName = FullNameTextBox.Text;
-                FullNameTextBox.BackColor = Color.White;
+                FullNameTextBox.BackColor = _noErrorColor;
                 _fullNameError = "";
             }
             catch (Exception exception)
             {
-                FullNameTextBox.BackColor = Color.LightPink;
+                FullNameTextBox.BackColor = _errorColor;
                 _fullNameError = exception.Message;
             }
         }
@@ -197,12 +202,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.Email = EmailTextBox.Text;
-                EmailTextBox.BackColor = Color.White;
+                EmailTextBox.BackColor = _noErrorColor;
                 _emailError = "";
             }
             catch (Exception exception)
             {
-                EmailTextBox.BackColor = Color.LightPink;
+                EmailTextBox.BackColor = _errorColor;
                 _emailError = exception.Message;
             }
         }
@@ -216,12 +221,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
-                PhoneNumberTextBox.BackColor = Color.White;
+                PhoneNumberTextBox.BackColor = _noErrorColor;
                 _phoneNumberError = "";
             }
             catch (Exception exception)
             {
-                PhoneNumberTextBox.BackColor = Color.LightPink;
+                PhoneNumberTextBox.BackColor = _errorColor;
                 _phoneNumberError = exception.Message;
             }
         }
@@ -235,12 +240,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.IdVK = VKTextBox.Text;
-                VKTextBox.BackColor = Color.White;
+                VKTextBox.BackColor = _noErrorColor;
                 _idVKError = "";
             }
             catch (Exception exception)
             {
-                VKTextBox.BackColor = Color.LightPink;
+                VKTextBox.BackColor = _errorColor;
                 _idVKError = exception.Message;
             }
         }

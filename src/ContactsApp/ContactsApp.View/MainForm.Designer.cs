@@ -217,7 +217,6 @@
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(175, 20);
             this.DateOfBirthTimePicker.TabIndex = 12;
-            this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
             // 
             // BirthdayPanel
             // 

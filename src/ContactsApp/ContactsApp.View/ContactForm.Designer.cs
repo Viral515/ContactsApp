@@ -205,7 +205,6 @@
             this.AddPhotoButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.AddPhotoButton.TabIndex = 24;
             this.AddPhotoButton.TabStop = false;
-            this.AddPhotoButton.Click += new System.EventHandler(this.AddPhotoButton_Click);
             this.AddPhotoButton.MouseEnter += new System.EventHandler(this.AddPhotoButton_MouseEnter);
             this.AddPhotoButton.MouseLeave += new System.EventHandler(this.AddPhotoButton_MouseLeave);
             // 
