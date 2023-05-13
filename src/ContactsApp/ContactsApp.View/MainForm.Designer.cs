@@ -39,6 +39,7 @@
             this.FindLabel = new System.Windows.Forms.Label();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.ContactInfoPanel = new System.Windows.Forms.Panel();
+            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.BirthdayPanel = new System.Windows.Forms.Panel();
             this.BirthdayPanelCloseButton = new System.Windows.Forms.Button();
             this.BirthdaySurnamesLabel = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
-            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MainTableLayoutPanel.SuspendLayout();
             this.ContactsPanel.SuspendLayout();
             this.ButtonsTableLayoutPanel.SuspendLayout();
@@ -103,22 +103,6 @@
             this.ContactsListBox.FormattingEnabled = true;
             this.ContactsListBox.IntegralHeight = false;
             this.ContactsListBox.ItemHeight = 15;
-            this.ContactsListBox.Items.AddRange(new object[] {
-            "Абакумов Владимир",
-            "Абалышев Михаил",
-            "Абарников Константин",
-            "Балтабаев Егор",
-            "Бальсунов Вячеслав",
-            "Баранов Владимир",
-            "Веденин Семен",
-            "Ведерников Павел",
-            "Виргунов Михаил",
-            "Гилёв Александр",
-            "Глазков Павел",
-            "Голов Станислав",
-            "Дмитриев Георгий",
-            "Добронравов Анатолий",
-            "Добрынин Николай"});
             this.ContactsListBox.Location = new System.Drawing.Point(3, 32);
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(238, 374);
@@ -226,6 +210,14 @@
             this.ContactInfoPanel.Name = "ContactInfoPanel";
             this.ContactInfoPanel.Size = new System.Drawing.Size(544, 444);
             this.ContactInfoPanel.TabIndex = 1;
+            // 
+            // DateOfBirthTimePicker
+            // 
+            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(109, 191);
+            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(175, 20);
+            this.DateOfBirthTimePicker.TabIndex = 12;
+            this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
             // 
             // BirthdayPanel
             // 
@@ -394,14 +386,6 @@
             this.PhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PhotoPictureBox.TabIndex = 0;
             this.PhotoPictureBox.TabStop = false;
-            // 
-            // DateOfBirthTimePicker
-            // 
-            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(109, 191);
-            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
-            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(175, 20);
-            this.DateOfBirthTimePicker.TabIndex = 12;
-            this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
             // 
             // MainForm
             // 
