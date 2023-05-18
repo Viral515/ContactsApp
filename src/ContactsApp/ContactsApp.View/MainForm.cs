@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection;
-using System.Reflection.Emit;
 using System.Windows.Forms;
 using ContactsApp.Model;
 
@@ -14,10 +12,18 @@ namespace ContactsApp.View
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Объект проекта содержащий список контактов
+        /// Объект проекта
         /// </summary>
         private Project _project = new Project();
 
+        /// <summary>
+        /// Объект менеджера проекта
+        /// </summary>
+        private ProjectManager _projectManager = new ProjectManager();
+
+        /// <summary>
+        /// Список отображаемых на форме контактов
+        /// </summary>
         private List<Contact> _displayContacts;
 
         /// <summary>
@@ -25,7 +31,9 @@ namespace ContactsApp.View
         /// </summary>
         public MainForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            _project = _projectManager.LoadProject();
+            UpdateListBox();
         }
 
         /// <summary>
@@ -152,6 +160,7 @@ namespace ContactsApp.View
         {
             AddContact();
             UpdateListBox();
+            _projectManager.SaveProject(_project);
         }
 
         /// <summary>
@@ -185,6 +194,7 @@ namespace ContactsApp.View
         {
             EditContact(ContactsListBox.SelectedIndex);
             UpdateListBox();
+            _projectManager.SaveProject(_project);
         }
 
         /// <summary>
@@ -196,6 +206,7 @@ namespace ContactsApp.View
         {
             RemoveContact(ContactsListBox.SelectedIndex);
             UpdateListBox();
+            _projectManager.SaveProject(_project);
         }
 
         /// <summary>
@@ -330,6 +341,7 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            _projectManager.SaveProject(_project);
             DialogResult result = MessageBox.Show($"Do you really want to exit?",
                 "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.No)
@@ -338,6 +350,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Выполняет поиск контакта по подстроке
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
             UpdateListBox();
