@@ -50,7 +50,8 @@ namespace ContactsApp.Model
             List<Contact> result = new List<Contact>();
             foreach (Contact contact in Contacts) 
             {
-                if (contact.FullName.Contains(substring) || contact.PhoneNumber.Contains(substring) ||
+                if (contact.FullName.Contains(substring) || 
+                    contact.PhoneNumber.Contains(substring) ||
                     contact.Email.Contains(substring))
                 {
                     result.Add(contact);

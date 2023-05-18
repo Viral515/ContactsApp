@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -17,6 +18,8 @@ namespace ContactsApp.View
         /// </summary>
         private Project _project = new Project();
 
+        private List<Contact> _displayContacts;
+
         /// <summary>
         /// Конструктор класса
         /// </summary>
@@ -31,10 +34,25 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
-            foreach (var item in _project.Contacts)
+            _project.Contacts = _project.SortByName();
+            if (FindTextBox.Text != "")
+            {
+                _displayContacts = _project.Search(FindTextBox.Text);
+            }
+            else
+            {
+                _displayContacts = _project.Contacts;
+            }
+            foreach (var item in _displayContacts)
             {
                 ContactsListBox.Items.Add(item.FullName);
             }
+            string birthdayPeople = "";
+            foreach (var item in _project.FindBirthdayContact())
+            {
+                birthdayPeople += item.FullName + ", ";
+            }
+            BirthdaySurnamesLabel.Text = birthdayPeople;
         }
 
         /// <summary>
@@ -48,7 +66,6 @@ namespace ContactsApp.View
             {
                 var updatedContact = contact.Contact;
                 _project.Contacts.Add(updatedContact);
-                ContactsListBox.Items.Add(updatedContact.FullName);
             }
             else
             {
@@ -71,7 +88,14 @@ namespace ContactsApp.View
                 MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                _project.Contacts.RemoveAt(index);
+                foreach (var item in _project.Contacts)
+                {
+                    if (item == _displayContacts[index])
+                    {
+                        _project.Contacts.Remove(item);
+                        break;
+                    }
+                }
             }
         }
         /// <summary>
@@ -80,8 +104,7 @@ namespace ContactsApp.View
         /// <param name="index"></param>
         private void EditContact(int index) 
         {
-            var selectedIndex = index;
-            var selectedContact = _project.Contacts[selectedIndex];
+            var selectedContact = _displayContacts[index];
             var contact = new ContactForm();
             contact.Contact = (Contact)selectedContact.Clone();
 
@@ -89,12 +112,8 @@ namespace ContactsApp.View
             if (result == DialogResult.OK)
             {
                 var updatedContact = contact.Contact;
-
-                ContactsListBox.Items.RemoveAt(selectedIndex);
-                _project.Contacts.RemoveAt(selectedIndex);
-
-                _project.Contacts.Insert(selectedIndex, updatedContact);
-                ContactsListBox.Items.Insert(selectedIndex, updatedContact.FullName);
+                _project.Contacts.Remove(selectedContact);
+                _project.Contacts.Add(updatedContact);
             }
         }
 
@@ -104,7 +123,7 @@ namespace ContactsApp.View
         /// <param name="index"></param>
         private void UpdateSelectedContact(int index)
         {
-            Contact contact = _project.Contacts[index];
+            Contact contact = _displayContacts[index];
             FullNameTextBox.Text = contact.FullName;
             EmailTextBox.Text = contact.Email;
             PhoneNumberTextBox.Text = contact.PhoneNumber;
@@ -165,6 +184,7 @@ namespace ContactsApp.View
         private void EditContactButton_Click(object sender, EventArgs e)
         {
             EditContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
 
         /// <summary>
@@ -316,6 +336,11 @@ namespace ContactsApp.View
             {
                 e.Cancel = true;
             }
+        }
+
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateListBox();
         }
     }
 }
