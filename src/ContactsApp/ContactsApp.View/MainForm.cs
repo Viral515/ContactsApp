@@ -55,6 +55,7 @@ namespace ContactsApp.View
             {
                 ContactsListBox.Items.Add(item.FullName);
             }
+
             string birthdayPeople = "";
             foreach (var item in _project.FindBirthdayContact())
             {

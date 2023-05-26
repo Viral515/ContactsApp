@@ -318,7 +318,6 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(175, 23);
             this.PhoneNumberTextBox.TabIndex = 6;
-            this.PhoneNumberTextBox.Text = "+7 (000) 000-00-00";
             this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
             // 
             // PhoneNumberLabel
@@ -341,7 +340,6 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(432, 23);
             this.EmailTextBox.TabIndex = 4;
-            this.EmailTextBox.Text = "abakumov@no.mail";
             this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
             // 
             // EmailLabel
@@ -364,7 +362,6 @@
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(432, 23);
             this.FullNameTextBox.TabIndex = 2;
-            this.FullNameTextBox.Text = "Абакумов Владимир";
             this.FullNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullNameTextBox_KeyPress);
             // 
             // FullNameLabel
