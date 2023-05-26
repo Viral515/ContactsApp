@@ -25,14 +25,15 @@ namespace ContactsApp.Model.UnitTests
             var contact3 = new Contact("Сидоров Сергей", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expectedFullName3 = contact3.FullName;
+
             project.Contacts.Add(contact1);
             project.Contacts.Add(contact2);
             project.Contacts.Add(contact3);
             var sortedContacts = project.SortByName();
-
             var actualFullName1 = sortedContacts[0].FullName;
             var actualFullName2 = sortedContacts[1].FullName;
             var actualFullName3 = sortedContacts[2].FullName;
+
             Assert.Multiple(
                () =>
                {
@@ -54,11 +55,13 @@ namespace ContactsApp.Model.UnitTests
             "+7(913)-111-22-33", new DateTime(2000,1,1), "1111121");
             var contact3 = new Contact("Сидоров Сергей", "qwe@gmail.com",
             "+7(913)-111-22-33", new DateTime(2000,1,1), "1111121");
+
             project.Contacts.Add(contact1);
             project.Contacts.Add(contact2);
             project.Contacts.Add(contact3);
             var findedContacts = project.FindBirthdayContact();
             var actualContact = findedContacts[0];
+
             Assert.AreEqual(expectedContact, actualContact);
         }
 
@@ -73,11 +76,13 @@ namespace ContactsApp.Model.UnitTests
             var expectedContact = contact2;
             var contact3 = new Contact("Сидоров Сергей", "qwe@gmail.com",
             "+7(913)-111-22-33", new DateTime(2000, 1, 1), "1111121");
+
             project.Contacts.Add(contact1);
             project.Contacts.Add(contact2);
             project.Contacts.Add(contact3);
             var findedContacts = project.Search("Иван");
             var actualContact = findedContacts[0];
+
             Assert.AreEqual(expectedContact, actualContact);
         }
     }
