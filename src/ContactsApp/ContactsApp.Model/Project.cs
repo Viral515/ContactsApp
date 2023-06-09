@@ -27,13 +27,13 @@ namespace ContactsApp.Model
         /// Находит контакты у которых сегодня день рождения
         /// </summary>
         /// <returns>Список именинников</returns>
-        public List<Contact> FindBirthdayContact() 
+        public List<Contact> FindBirthdayContact(DateTime today) 
         {
-            DateTime today = DateTime.Now;
             List<Contact> result = new List<Contact>();
             foreach (Contact contact in Contacts) 
             {
-                if ((contact.DateOfBirth.Month == today.Month) && (contact.DateOfBirth.Day == today.Day))
+                if ((contact.DateOfBirth.Month == today.Month) && 
+                    (contact.DateOfBirth.Day == today.Day))
                 {
                     result.Add(contact);
                 }
@@ -45,8 +45,12 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="substring">Подстрока имени, номера или email'а</param>
         /// <returns>Список найденных контактов</returns>
-        public List<Contact> Search(string substring)
+        public List<Contact> FindContact(string substring)
         {
+            if (substring == "")
+            {
+                return Contacts;
+            }
             List<Contact> result = new List<Contact>();
             foreach (Contact contact in Contacts) 
             {
