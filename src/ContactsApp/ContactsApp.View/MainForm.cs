@@ -26,6 +26,8 @@ namespace ContactsApp.View
         /// </summary>
         private List<Contact> _displayContacts;
 
+        private DateTime _todayData = DateTime.Today;
+
         /// <summary>
         /// Конструктор класса
         /// </summary>
@@ -43,21 +45,14 @@ namespace ContactsApp.View
         {
             ContactsListBox.Items.Clear();
             _project.Contacts = _project.SortByName();
-            if (FindTextBox.Text != "")
-            {
-                _displayContacts = _project.Search(FindTextBox.Text);
-            }
-            else
-            {
-                _displayContacts = _project.Contacts;
-            }
+            _displayContacts = _project.FindContact(FindTextBox.Text);
             foreach (var item in _displayContacts)
             {
                 ContactsListBox.Items.Add(item.FullName);
             }
 
             string birthdayPeople = "";
-            foreach (var item in _project.FindBirthdayContact())
+            foreach (var item in _project.FindBirthdayContact(_todayData))
             {
                 birthdayPeople += item.FullName + ", ";
             }
