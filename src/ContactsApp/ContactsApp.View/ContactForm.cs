@@ -24,7 +24,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Объект контакта, содержащий основную информацию о нём
         /// </summary>
-        private Contact _contact = new Contact("Mike Wazovsky", "qwe@gmail.com", 
+        private Contact _contact = new Contact("EmptyFullName", "qwe@gmail.com", 
             "+7(913)-111-22-33", DateTime.Today, "1111121"); 
 
         /// <summary>
@@ -72,9 +72,23 @@ namespace ContactsApp.View
         /// </summary>
         public ContactForm()
         {
-            InitializeComponent(); 
-            UpdateForm();
+            InitializeComponent();
+            ClearTextBoxes();
         }
+
+        private void ClearTextBoxes()
+        {
+            FullNameTextBox.Text = "";
+            FullNameTextBox.BackColor = _noErrorColor;
+            EmailTextBox.Text = "";
+            EmailTextBox.BackColor = _noErrorColor;
+            PhoneNumberTextBox.Text = "";
+            PhoneNumberTextBox.BackColor = _noErrorColor;
+            DateOfBirthTimePicker.Value = DateTime.Today;
+            VKTextBox.Text = "";
+            VKTextBox.BackColor = _noErrorColor;
+        }
+
         /// <summary>
         /// Обновляет информацию о контакте в полях на форме
         /// </summary>
@@ -262,6 +276,14 @@ namespace ContactsApp.View
             catch (Exception exception)
             {
                 _dateOfBirthError = exception.Message;
+            }
+        }
+
+        private void ContactForm_Load(object sender, EventArgs e)
+        {
+            if (_contact.FullName != "EmptyFullName")
+            {
+                UpdateForm();
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 using ContactsApp.Model;
 
@@ -101,24 +102,27 @@ namespace ContactsApp.View
                     }
                 }
             }
+            ClearSelectedContact();
         }
+
         /// <summary>
         /// Редактирует выбранный контакт
         /// </summary>
         /// <param name="index"></param>
         private void EditContact(int index) 
         {
-            var selectedContact = _displayContacts[index];
-            var contact = new ContactForm();
-            contact.Contact = (Contact)selectedContact.Clone();
+            var contactEditForm = new ContactForm();
+            var editContact = _displayContacts[index].Clone();
+            contactEditForm.Contact = (Contact)editContact;
 
-            DialogResult result = contact.ShowDialog();
+            DialogResult result = contactEditForm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                var updatedContact = contact.Contact;
-                _project.Contacts.Remove(selectedContact);
-                _project.Contacts.Add(updatedContact);
+                _project.Contacts.Remove(_displayContacts[index]);
+                _project.Contacts.Add(contactEditForm.Contact);
+                UpdateSelectedContact(index);
             }
+            ContactsListBox.SetSelected(index, true);
         }
 
         /// <summary>
@@ -156,6 +160,7 @@ namespace ContactsApp.View
         {
             AddContact();
             UpdateListBox();
+
             _projectManager.SaveProject(_project);
         }
 
@@ -188,8 +193,10 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            EditContact(ContactsListBox.SelectedIndex);
+            int index = ContactsListBox.SelectedIndex;
+            EditContact(index);
             UpdateListBox();
+            ContactsListBox.SetSelected(index, true);
             _projectManager.SaveProject(_project);
         }
 

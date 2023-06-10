@@ -12,7 +12,7 @@ namespace ContactsApp.Model.UnitTests
     [TestFixture]
     public class ContactTests
     {
-        //Тесты ФИО
+        // Тесты ФИО
         [TestCase("", "Должно возникать исключение, если фио - пустая строка",
             TestName = "Присвоение пустой строки в качестве фио.")]
         [TestCase("СмирновСмирновСмирновСмирновСмирновСмирновСмирнов" +
@@ -21,14 +21,14 @@ namespace ContactsApp.Model.UnitTests
             TestName = "Присвоение неправильного фио больше 100 символов.")]
         public void FullName_SetIncorrectValue_ThrowException(string wrongFullName, string message)
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             
-            //Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => 
             { 
-                //Act
+                // Act
                 contact.FullName = wrongFullName; 
             }, message);
         }
@@ -36,36 +36,36 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Присвоение корректного значения в поле фио")]
         public void FullName_SetCorrectValue_ValueIsSetted()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "Иванов Иван Иванович";
             contact.FullName = expected;
 
-            //Act
+            // Act
             var actual = contact.FullName;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Значение фио установлено неправильно");
         }
 
         [Test(Description = "Позитивный тест геттера фио")]
         public void FullName_GetValue_ReturnsValue()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "Иванов Иван Иванович";
             contact.FullName = expected;
             
-            //Act
+            // Act
             var actual = contact.FullName;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Возвращается неправильное значение фио");
         }
 
-        //Тесты email
+        // Тесты email
         [TestCase("", "Должно возникать исключение, если email - пустая строка",
             TestName = "Присвоение пустой строки в качестве email.")]
         [TestCase("СмирновСмирновСмирновСмирновСмирновСмирновСмирнов" +
@@ -74,14 +74,14 @@ namespace ContactsApp.Model.UnitTests
             TestName = "Присвоение неправильного email больше 100 символов.")]
         public void Email_SetIncorrectValue_ThrowException(string wrongEmail, string message)
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             
-            //Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => 
             { 
-                //Act
+                // Act
                 contact.Email = wrongEmail; 
             }, message);
         }
@@ -89,35 +89,35 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Присвоение корректного значения в поле email")]
         public void Email_SetCorrectValue_ValueIsSetted()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "Ivan123@mail.ru";
             contact.Email = expected;
-            //Act
+            // Act
             var actual = contact.Email;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Значение email установлено неправильно");
         }
 
         [Test(Description = "Позитивный тест геттера email")]
         public void Email_GetValue_ReturnsValue()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "Ivan123@mail.ru";
             contact.Email = expected;
             
-            //Act
+            // Act
             var actual = contact.Email;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Возвращается неправильное значение email");
         }
 
-        //Тесты номера телефона
+        // Тесты номера телефона
         [TestCase("", "Должно возникать исключение, если номер телефона - пустая строка",
             TestName = "Присвоение пустой строки в качестве номера телефона.")]
         [TestCase("899999999999999999999999999999999999999999999999999" +
@@ -129,14 +129,14 @@ namespace ContactsApp.Model.UnitTests
             TestName = "Присвоение неправильного номера телефона, содержащего недопустимые символы")]
         public void PhoneNumber_SetIncorrectValue_ThrowException(string wrongPhoneNumber, string message)
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
 
-            //Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => 
             { 
-                //Act
+                // Act
                 contact.PhoneNumber = wrongPhoneNumber; 
             }, message);
         }
@@ -144,47 +144,47 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Позитивный тест сеттера номера телефона")]
         public void PhoneNumber_SetCorrectValue_ValueIsSetted()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "+7 (953)-924-28-53";
             contact.PhoneNumber = expected;
 
-            //Act
+            // Act
             var actual = contact.PhoneNumber;
 
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Значение номера телефона установлено неправильно");
         }
 
         [Test(Description = "Позитивный тест геттера номера телефона")]
         public void PhoneNumber_GetValue_ReturnsValue()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "+7 (953)-924-28-53";
             contact.PhoneNumber = expected;
             
-            //Act
+            // Act
             var actual = contact.PhoneNumber;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Возвращается неправильное значение номера телефона");
         }
 
-        //Тесты даты рождения
+        // Тесты даты рождения
         [Test(Description = "Негативный тест сеттера даты")]
         public void DateOfBirth_SetIncorrectValueEarlyData_ThrowException()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             
-            //Act
+            // Act
             var expected = new DateTime(1000, 1, 1);
             
-            //Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => 
             { 
                 contact.DateOfBirth = expected; 
@@ -194,14 +194,14 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Негативный тест сеттера даты")]
         public void DateOfBirth_SetIncorrectValueLateDate_ThrowException()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             
-            //Act
+            // Act
             var expected = new DateTime(2048, 1, 1);
             
-            //Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => 
             { 
                 contact.DateOfBirth = expected; 
@@ -211,36 +211,36 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Позитивный тест сеттера даты")]
         public void DateOfBirth_SetCorrectValue_ValueIsSetted()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = DateTime.Today;
             contact.DateOfBirth = expected;
             
-            //Act
+            // Act
             var actual = contact.DateOfBirth;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Значение email установлено неправильно");
         }
 
         [Test(Description = "Позитивный тест геттера даты")]
         public void DateOfBirth_GetValue_ReturnsValue()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = DateTime.Today;
             contact.DateOfBirth = expected;
             
-            //Act
+            // Act
             var actual = contact.DateOfBirth;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Возвращается неправильное значение email");
         }
 
-        //Тесты idVK
+        // Тесты idVK
         [TestCase("", "Должно возникать исключение, если полное IdVK - пустая строка",
             TestName = "Присвоение пустой строки в качестве IdVK")]
         [TestCase("01234567890123456789012345678901234567890123456789a",
@@ -248,54 +248,54 @@ namespace ContactsApp.Model.UnitTests
             TestName = "Присвоение неправильного IdVK более 50 символов")]
         public void IdVk_SetUncorrectValue_ArgumentException(string wrongIdVK, string message)
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             
-            //Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => 
             { 
-                //Act
+                // Act
                 contact.IdVK = wrongIdVK; 
             }, message);
         }
-        [Test(Description = "Позитивный тест сеттера IdVK")]
 
+        [Test(Description = "Позитивный тест сеттера IdVK")]
         public void IdVK_SetCorrectValue_ValueIsSetted()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "123456";
             contact.IdVK = expected;
             
-            //Act
+            // Act
             var actual = contact.IdVK;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Значение IdVK установлено неправильно");
         }
 
         [Test(Description = "Позитивный тест геттера IdVK")]
         public void IdVK_GetValue_ReturnsValue()
         {
-            //Setup
+            // Setup
             Contact contact = new Contact("Mike Wazovsky", "qwe@gmail.com",
             "+7(913)-111-22-33", DateTime.Today, "1111121");
             var expected = "123456";
             contact.IdVK = expected;
             
-            //Act
+            // Act
             var actual = contact.IdVK;
             
-            //Assert
+            // Assert
             Assert.AreEqual(expected, actual, "Возвращается неправильное значение IdVK");
         }
 
         [Test(Description = "Позитивный тест конструктора с параметрами")]
         public void Constructor_SetCorrectParameters_ReturnsCorrectValues()
         {
-            //Setup
+            // Setup
             var correctFullName = "Иванов Иван Иванович";
             var expectedFullName = correctFullName;
             var correctEmail = "Ivan123@mail.com";
@@ -308,14 +308,14 @@ namespace ContactsApp.Model.UnitTests
             var expectedVkId = correctVkId;
             Contact contact = new Contact(correctFullName, correctEmail, correctPhoneNumber, correctDateOfBirth, correctVkId);
 
-            //Act
+            // Act
             var actualFullName = contact.FullName;
             var actualEmail = contact.Email;
             var actualPhoneNumber = contact.PhoneNumber;
             var actualDateOfBirth = contact.DateOfBirth;
             var actualIdVk = contact.IdVK;
 
-            //Assert
+            // Assert
             Assert.Multiple(
                 () =>
                 {
@@ -331,15 +331,15 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Негативный тест конструктора с параметрами")]
         public void Constructor_SetInvalidParameter_ArgumentException()
         {
-            //Setup
+            // Setup
             var wrongFullName = "СмирновСмирновСмирновСмирновСмирновСмирновСмирнов" +
             "СмирновСмирновСмирновСмирновСмирновСмирновСмирновСмирнов";
             var message = "Должно возникать исключение, если имя содержит больше 100 символов";
 
-            //Assert
+            // Assert
             Assert.Throws<ArgumentException>(() =>
             {
-                //Act
+                // Act
                 new Contact(wrongFullName, "Ivan123@mail.com", "+7 (953)-924-28-53",
                     DateTime.Today, "1234567890");
             },

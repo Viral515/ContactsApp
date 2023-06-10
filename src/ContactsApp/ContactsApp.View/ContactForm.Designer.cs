@@ -231,6 +231,7 @@
             this.Name = "ContactForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.ContactForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
             this.OKpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).EndInit();
